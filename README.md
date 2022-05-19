@@ -23,6 +23,7 @@ Attemp I:
     in the way : {A/F, C/F, D/F, E/F, 1}
 
 usingv linear algebra we will solve:
+
     | A' C' D' E' 1   |
     | a1  c1 d1 e1 n1 |
     | a2  c2 d2 e2 n2 | = 0
@@ -35,10 +36,10 @@ where I' = I/F, I in {}
 
  So, to write it correctly:
 
- |A'  |   | a1  a3 a4 a5   |    | -1 |
- |C'  | * | c1 c2 c3 c4 c5 | =  | -1 |
- |D'  |   | d1 d2 d3 d4 d5 |    | -1 |
- |E'  |   | e1 e2 e3 e4 e5 |    | -1 |
+     |A'  |   | a1  a3 a4 a5   |    | -1 |
+     |C'  | * | c1 c2 c3 c4 c5 | =  | -1 |
+     |D'  |   | d1 d2 d3 d4 d5 |    | -1 |
+     |E'  |   | e1 e2 e3 e4 e5 |    | -1 |
 
 
 So, to say, goal has been achieved,
