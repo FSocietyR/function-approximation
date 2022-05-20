@@ -1,5 +1,4 @@
 #coding *utf-8*
-
 from sympy import *
 import sympy
 import matplotlib.pyplot as plt
@@ -88,9 +87,9 @@ class second_order_curve(Function):
         from sympy import solve as solver
         #from alive_progress import alive_bar as bar
 
-        UNNEEDED_MEMORY = self.nd_order_curve(args[0])
-        self.coeff, dots = UNNEEDED_MEMORY['coeff'], UNNEEDED_MEMORY['dots']
-        del UNNEEDED_MEMORY
+        CHUNK = self.nd_order_curve(args[0])
+        self.coeff, dots = CHUNK['coeff'], CHUNK['dots']
+        del CHUNK
         X = dots['X']
         X = np.array(X)
         Y = dots['Y']
@@ -105,11 +104,11 @@ class second_order_curve(Function):
         E_n = self.coeff['E_n'][0]
         C_n = self.coeff['C_n'][0]
 
-        WILL_BE_DELETED_SOON = [_ for _ in range(
+        GARBAGE = [_ for _ in range(
             int(min(-10**3 + 1, min(dots['X']))), int(max(10**3+1, max(dots['X']))))]
 
         firstind = 0
-        for x in WILL_BE_DELETED_SOON:
+        for x in GARBAGE:
             expr = A_n * x ** 2 + D_n * 2 * x + E_n * 2 * y + C_n * y ** 2 + 1
             ans = solver(expr, y)
 
@@ -121,7 +120,7 @@ class second_order_curve(Function):
                 self.y.append(ans[-1])
                 self.x.append(x)
 
-            delt = WILL_BE_DELETED_SOON[-1] - WILL_BE_DELETED_SOON[0]
+            delt = GARBAGE[-1] - GARBAGE[0]
             procent = len(self.x) / (2*delt) * 100
 
             for _ in range(firstind, 21):
